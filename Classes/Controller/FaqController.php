@@ -9,6 +9,7 @@ namespace HDNET\Faq\Controller;
 
 use HDNET\Faq\Domain\Model\Question;
 use HDNET\Faq\Domain\Model\Request\Faq;
+use HDNET\Faq\Domain\Model\Questioncategory;
 use HDNET\Faq\Domain\Model\Request\QuestionRequest;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -184,6 +185,15 @@ class FaqController extends AbstractController
             $this->view->render();
         }
         $this->forward('thanks');
+    }
+
+    /**
+     * @Questioncategory $category
+     */
+    public function listAction(Questioncategory $category) {
+        $questions = $this->questionRepository->findAll($category);
+        $this->view->assign('category', $category);
+        $this->view->assign('questions', $questions);
     }
 
     /**

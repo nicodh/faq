@@ -10,7 +10,7 @@
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'HDNET.' . $_EXTKEY,
     'Faq',
-    ['Faq' => 'index,detail'],
+    ['Faq' => 'index,detail,list'],
     ['Faq' => 'index']
 );
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
