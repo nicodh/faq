@@ -12,10 +12,11 @@ use HDNET\Faq\Domain\Model\Request\Faq;
 use HDNET\Faq\Domain\Model\Questioncategory;
 use HDNET\Faq\Domain\Model\Request\QuestionRequest;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use HDNET\Autoloader\Annotation\Cache;
 
 /**
  * FAQ
- *
+ * @IgnoreAnnotation("Questioncategory")
  */
 class FaqController extends AbstractController
 {
@@ -134,7 +135,6 @@ class FaqController extends AbstractController
      * Enter form
      *
      * @param \HDNET\Faq\Domain\Model\Request\QuestionRequest $question
-     * @donotvalidate $question
      * @ignorevalidation $question
      */
     public function formAction(QuestionRequest $question = null)

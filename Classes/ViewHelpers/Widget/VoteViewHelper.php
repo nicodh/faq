@@ -31,16 +31,20 @@ class VoteViewHelper extends AbstractWidgetViewHelper
      */
     protected $controller;
 
+    public function initializeArguments()
+    {
+        parent::initializeArguments();
+        $this->registerArgument('question', 'int', 'Question ID');
+        $this->registerArgument('counters', 'array', 'Counter', false, '');
+    }
+
     /**
      * Render
-     *
-     * @param int $question
-     * @param array $counters
      *
      * @return \TYPO3\CMS\Extbase\Mvc\ResponseInterface
      * @throws \TYPO3\CMS\Fluid\Core\Widget\Exception\MissingControllerException
      */
-    public function render($question, array $counters)
+    public function render()
     {
         return $this->initiateSubRequest();
     }
